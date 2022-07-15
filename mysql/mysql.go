@@ -9,7 +9,7 @@ import (
 	"gorm.io/gorm/logger"
 )
 
-// ConnectMySQL connects to MySQL database
+// DB connects to MySQL database
 func DB(host string, port string, username string, password string, database string) *gorm.DB {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", username, password, host, port, database)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{Logger: logger.Default.LogMode(logger.Silent)})
